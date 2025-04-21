@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장바구니 - NYKIN SHOP</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f5f0e6; padding: 2rem; }
+    h2 { text-align: center; }
+    .cart-item { background: white; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .cart-item h3 { margin: 0; }
+    .total { font-weight: bold; margin-top: 2rem; text-align: right; }
+    .empty { text-align: center; color: gray; margin-top: 4rem; }
+    .order-button { margin-top: 2rem; display: block; width: 100%; padding: 1rem; font-size: 1rem; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>🛒 장바구니</h2>
+  <div id="cart-container"></div>
+  <div class="total" id="total-price"></div>
+  <button class="order-button" onclick="goToOrder()">주문하기</button>
+
+  <script>
+    const cartContainer = document.getElementById('cart-container');
+    const totalPriceEl = document.getElementById('total-price');
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<div class="empty">장바구니에 담긴 상품이 없습니다.</div>';
+      document.querySelector('.order-button').style.display = 'none';
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `<h3>${item.name}</h3><p>₩${item.price.toLocaleString()}</p>`;
+        cartContainer.appendChild(div);
+      });
+      totalPriceEl.innerText = `총 합계: ₩${total.toLocaleString()}`;
+    }
+
+    function goToOrder() {
+      alert('주문 기능은 아직 준비 중입니다. 😄');
+    }
+  </script>
+</body>
+</html>
