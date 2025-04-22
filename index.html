@@ -28,18 +28,6 @@
 </head>
 <body>
 
-  <!-- 로그인 상태 체크 (단, 로그인하지 않아도 페이지는 보임) -->
-  <script>
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-
-    // 로그인 상태가 아니면 로그인 버튼을 보여줌
-    if (isLoggedIn !== 'true') {
-      document.querySelector('.auth').style.display = 'flex'; // 로그인/회원가입 버튼 보이기
-    } else {
-      document.querySelector('.auth').style.display = 'none'; // 로그인 후 버튼 숨기기
-    }
-  </script>
-
   <header>
     <h2 style="margin: 0;">NYKIN SHOP</h2>
     <div class="auth">
@@ -144,6 +132,5 @@
       document.getElementById(category).style.display = 'grid';
     }
   </script>
-
 </body>
 </html>
