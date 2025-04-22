@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYKIN SHOP</title>
   <meta property="og:image" content="https://super-clafoutis-b5e47f.netlify.app/thumbnail.jpg" />
   <meta property="og:title" content="NYKIN SHOP" />
   <meta property="og:description" content="감성 쇼핑몰, 지금 바로 쇼핑해보세요!" />
   <meta property="og:url" content="https://super-clafoutis-b5e47f.netlify.app" />
-  <title>NYKIN SHOP</title>
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background-color: #f5f0e6; }
     header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
@@ -26,17 +26,21 @@
     .product-card button { margin-top: 0.5rem; padding: 0.4rem 1rem; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
     footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; justify-content: space-around; background-color: white; padding: 0.5rem 0; border-top: 1px solid #ccc; }
     footer a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; }
+    .free-shipping-banner { background-color: #f8d7da; padding: 1rem; text-align: center; font-weight: bold; color: #721c24; }
   </style>
 </head>
 <body>
   <header>
     <h2 style="margin: 0;">NYKIN SHOP</h2>
     <div class="auth">
-      <a href="#">회원가입</a>
-      <a href="#">로그인</a>
+      <!-- 회원가입 페이지로 이동하는 링크 -->
+      <a href="signup.html">회원가입</a>
+    
+      <!-- 로그인 페이지로 이동하는 링크 -->
+      <a href="login.html">로그인</a>
     </div>
   </header>
-
+  
   <div class="search-bar">
     <input type="text" placeholder="🔍 상품 검색...">
   </div>
@@ -49,6 +53,12 @@
     </div>
   </div>
 
+  <!-- 무료배송 배너 추가 -->
+  <div class="free-shipping-banner">
+    무료배송 시작!
+  </div>
+
+  <!-- 베스트 상품 섹션 -->
   <h3 style="padding-left: 1rem;">🔥 베스트 상품</h3>
   <div class="product-grid">
     <div class="product-card">
@@ -64,7 +74,6 @@
       <button onclick="addToCart('원피스', 10000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <!-- 성인용젤을 반바지로 변경 -->
       <img src="https://images.unsplash.com/photo-1595315182870-d5182c1dfe07?auto=format&fit=crop&w=400&q=80" alt="반바지" />
       <h4>반바지</h4>
       <p>₩10,000</p>
@@ -72,81 +81,68 @@
     </div>
   </div>
 
-  <h3 style="padding-left: 1rem;">👗 의류</h3>
+  <!-- 카테고리 추가 -->
+  <h3 style="padding-left: 1rem;">📦 카테고리</h3>
   <div class="product-grid">
+    <!-- 의류 카테고리 -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1543834795-87e0b987f78a?auto=format&fit=crop&w=400&q=80" alt="신발" />
+      <img src="https://images.unsplash.com/photo-1590311480529-205ab4667104?auto=format&fit=crop&w=400&q=80" alt="신발" />
       <h4>신발</h4>
       <p>₩10,000</p>
       <button onclick="addToCart('신발', 10000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1546092387-550999e7f9a5?auto=format&fit=crop&w=400&q=80" alt="원피스" />
+      <img src="https://images.unsplash.com/photo-1558466982-9f2fe5d5a798?auto=format&fit=crop&w=400&q=80" alt="원피스" />
       <h4>원피스</h4>
       <p>₩10,000</p>
       <button onclick="addToCart('원피스', 10000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1595315182870-d5182c1dfe07?auto=format&fit=crop&w=400&q=80" alt="반팔티" />
+      <img src="https://images.unsplash.com/photo-1572440270561-16f59881b7f0?auto=format&fit=crop&w=400&q=80" alt="반팔티" />
       <h4>반팔티</h4>
       <p>₩10,000</p>
       <button onclick="addToCart('반팔티', 10000)">장바구니 담기</button>
     </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1615360364748-83c8f58fe138?auto=format&fit=crop&w=400&q=80" alt="맨투맨" />
-      <h4>맨투맨</h4>
-      <p>₩10,000</p>
-      <button onclick="addToCart('맨투맨', 10000)">장바구니 담기</button>
-    </div>
-  </div>
 
-  <h3 style="padding-left: 1rem;">🍜 음식</h3>
-  <div class="product-grid">
+    <!-- 음식 카테고리 -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1602522255649-3cd16e9a5b93?auto=format&fit=crop&w=400&q=80" alt="쌀국수면" />
+      <img src="https://images.unsplash.com/photo-1584348985644-8acfb5938209?auto=format&fit=crop&w=400&q=80" alt="쌀국수면" />
       <h4>쌀국수면</h4>
       <p>₩5,000</p>
       <button onclick="addToCart('쌀국수면', 5000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1556580503-cd2cbe53d4e0?auto=format&fit=crop&w=400&q=80" alt="느억맘소스" />
+      <img src="https://images.unsplash.com/photo-1606901620963-027fbc7c53c9?auto=format&fit=crop&w=400&q=80" alt="느억맘소스" />
       <h4>느억맘소스</h4>
       <p>₩5,000</p>
       <button onclick="addToCart('느억맘소스', 5000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1620078552524-7e99fae38a87?auto=format&fit=crop&w=400&q=80" alt="베트남고추" />
+      <img src="https://images.unsplash.com/photo-1592170529532-dff88e25f1ea?auto=format&fit=crop&w=400&q=80" alt="베트남고추" />
       <h4>베트남고추</h4>
       <p>₩5,000</p>
       <button onclick="addToCart('베트남고추', 5000)">장바구니 담기</button>
     </div>
-  </div>
 
-  <h3 style="padding-left: 1rem;">🏠 생활용품</h3>
-  <div class="product-grid">
+    <!-- 생활용품 카테고리 -->
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1593211232355-46d28b967204?auto=format&fit=crop&w=400&q=80" alt="건조대" />
+      <img src="https://images.unsplash.com/photo-1565349020-8c92a6a7d536?auto=format&fit=crop&w=400&q=80" alt="건조대" />
       <h4>건조대</h4>
       <p>₩3,000</p>
       <button onclick="addToCart('건조대', 3000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1602201278497-0992b74f2a61?auto=format&fit=crop&w=400&q=80" alt="밥그릇" />
+      <img src="https://images.unsplash.com/photo-1586111287233-3188e842d4be?auto=format&fit=crop&w=400&q=80" alt="밥그릇" />
       <h4>밥그릇</h4>
       <p>₩3,000</p>
       <button onclick="addToCart('밥그릇', 3000)">장바구니 담기</button>
     </div>
     <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1566976947-dc8d0f8ec2b6?auto=format&fit=crop&w=400&q=80" alt="줄넘기" />
+      <img src="https://images.unsplash.com/photo-1585866896887-d9e928299f0c?auto=format&fit=crop&w=400&q=80" alt="줄넘기" />
       <h4>줄넘기</h4>
       <p>₩3,000</p>
       <button onclick="addToCart('줄넘기', 3000)">장바구니 담기</button>
     </div>
-  </div>
-
-  <!-- 추가 배너 -->
-  <div style="text-align: center; background-color: #f5f0e6; padding: 1rem;">
-    <h2>🎉 무료배송 시작 🎉</h2>
   </div>
 
   <footer>
@@ -167,4 +163,3 @@
   </script>
 </body>
 </html>
-
