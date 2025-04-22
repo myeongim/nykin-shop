@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+</head>
+<body>
+  <h2>회원가입</h2>
+  <form id="signupForm">
+    <label for="username">아이디</label>
+    <input type="text" id="username" placeholder="아이디를 입력하세요" required>
+    
+    <label for="password">비밀번호</label>
+    <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+    
+    <button type="submit">회원가입</button>
+  </form>
+
+  <script>
+    // 회원가입 폼 제출 시 실행되는 코드
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", function(event) {
+      event.preventDefault();  // 폼 제출을 막음
+
+      // 아이디와 비밀번호를 가져오기
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // 사용자 정보 저장 (localStorage에 저장)
+      const user = { username: username, password: password };
+      localStorage.setItem("user", JSON.stringify(user));  // 로컬 저장소에 저장
+
+      alert("회원가입이 완료되었습니다!");
+      window.location.href = "login.html";  // 회원가입 후 로그인 페이지로 이동
+    });
+  </script>
+</body>
+</html>
