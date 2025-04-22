@@ -131,7 +131,7 @@
       document.getElementById(category).style.display = 'grid';
     }
 
-    // 로그인 확인
+    // 로그인 상태 확인
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn !== 'true') {
       window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
@@ -139,5 +139,3 @@
   </script>
 </body>
 </html>
-
-
