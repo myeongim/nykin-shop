@@ -22,8 +22,8 @@
     .product-card button { margin-top: 0.5rem; padding: 0.4rem 1rem; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
     footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; justify-content: space-around; background-color: white; padding: 0.5rem 0; border-top: 1px solid #ccc; }
     footer a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; }
-    .category-btn { padding: 1rem; background-color: #f8f9fa; border: 1px solid #ccc; text-align: center; cursor: pointer; }
     .free-shipping-banner { background-color: #f8d7da; padding: 1rem; text-align: center; font-weight: bold; color: #721c24; }
+    .category-btn { padding: 1rem; background-color: #f8f9fa; border: 1px solid #ccc; text-align: center; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -124,11 +124,19 @@
   </footer>
 
   <script>
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
-  if (isLoggedIn !== 'true') {
-    window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
-  }
-</script>
+    function showCategory(category) {
+      document.querySelectorAll('.product-grid').forEach(function(div) {
+        div.style.display = 'none';
+      });
+      document.getElementById(category).style.display = 'grid';
+    }
 
+    // 로그인 상태 확인
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn !== 'true') {
+      window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
+    }
+  </script>
 </body>
 </html>
+
