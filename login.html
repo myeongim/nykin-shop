@@ -29,4 +29,14 @@
 
       const storedUser = JSON.parse(localStorage.getItem("user"));
 
-      if (
+      if (storedUser && storedUser.username === username && storedUser.password === password) {
+        localStorage.setItem('isLoggedIn', 'true');  // 로그인 상태 저장
+        alert("로그인 성공!");
+        window.location.href = "home.html";  // 로그인 후 홈 페이지로 이동
+      } else {
+        alert("아이디 또는 비밀번호가 잘못되었습니다.");
+      }
+    });
+  </script>
+</body>
+</html>
