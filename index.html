@@ -28,12 +28,12 @@
 </head>
 <body>
 
-  <!-- 홈페이지가 기본으로 뜨도록 하고, 로그인 상태 확인 -->
+  <!-- 홈페이지가 먼저 뜨도록 처리 -->
   <script>
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-    // 로그인 상태 체크 없이 홈페이지가 보이게 하고 로그인 안되면 로그인 페이지로 이동
+    // 홈페이지가 먼저 뜨고 로그인 상태가 아니면 로그인 페이지로 이동
     if (isLoggedIn !== 'true') {
-      window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
+      window.location.href = 'login.html'; // 로그인 안 되어 있으면 로그인 페이지로 이동
     }
   </script>
 
@@ -72,17 +72,17 @@
   <!-- 의류 카테고리 -->
   <div id="clothing" class="product-grid" style="display: none;">
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="반팔티">
+      <img src="https://via.placeholder.com/150" alt="반팔티">
       <h4>반팔티</h4>
       <p>₩10,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="신발">
+      <img src="https://via.placeholder.com/150" alt="신발">
       <h4>신발</h4>
       <p>₩10,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="원피스">
+      <img src="https://via.placeholder.com/150" alt="원피스">
       <h4>원피스</h4>
       <p>₩10,000</p>
     </div>
@@ -91,17 +91,17 @@
   <!-- 음식 카테고리 -->
   <div id="food" class="product-grid" style="display: none;">
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="쌀국수면">
+      <img src="https://via.placeholder.com/150" alt="쌀국수면">
       <h4>쌀국수면</h4>
       <p>₩5,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="느억맘소스">
+      <img src="https://via.placeholder.com/150" alt="느억맘소스">
       <h4>느억맘소스</h4>
       <p>₩5,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="베트남고추">
+      <img src="https://via.placeholder.com/150" alt="베트남고추">
       <h4>베트남고추</h4>
       <p>₩5,000</p>
     </div>
@@ -110,17 +110,17 @@
   <!-- 생활용품 카테고리 -->
   <div id="lifestyle" class="product-grid" style="display: none;">
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="건조대">
+      <img src="https://via.placeholder.com/150" alt="건조대">
       <h4>건조대</h4>
       <p>₩3,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="밥그릇">
+      <img src="https://via.placeholder.com/150" alt="밥그릇">
       <h4>밥그릇</h4>
       <p>₩3,000</p>
     </div>
     <div class="product-card">
-      <img src="/mnt/data/thumbnail.jpg" alt="줄넘기">
+      <img src="https://via.placeholder.com/150" alt="줄넘기">
       <h4>줄넘기</h4>
       <p>₩3,000</p>
     </div>
@@ -143,4 +143,3 @@
   </script>
 </body>
 </html>
-
