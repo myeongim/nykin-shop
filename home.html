@@ -23,6 +23,7 @@
     footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; justify-content: space-around; background-color: white; padding: 0.5rem 0; border-top: 1px solid #ccc; }
     footer a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; }
     .category-btn { padding: 1rem; background-color: #f8f9fa; border: 1px solid #ccc; text-align: center; cursor: pointer; }
+    .free-shipping-banner { background-color: #f8d7da; padding: 1rem; text-align: center; font-weight: bold; color: #721c24; }
   </style>
 </head>
 <body>
@@ -46,6 +47,12 @@
     </div>
   </div>
 
+  <!-- 무료배송 배너 추가 -->
+  <div class="free-shipping-banner">
+    무료배송 시작!
+  </div>
+
+  <!-- 카테고리 버튼 -->
   <div class="category-buttons">
     <button class="category-btn" onclick="showCategory('clothing')">의류</button>
     <button class="category-btn" onclick="showCategory('food')">음식</button>
@@ -132,4 +139,5 @@
   </script>
 </body>
 </html>
+
 
