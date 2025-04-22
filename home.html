@@ -124,18 +124,11 @@
   </footer>
 
   <script>
-    function showCategory(category) {
-      document.querySelectorAll('.product-grid').forEach(function(div) {
-        div.style.display = 'none';
-      });
-      document.getElementById(category).style.display = 'grid';
-    }
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn !== 'true') {
+    window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
+  }
+</script>
 
-    // 로그인 상태 확인
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn !== 'true') {
-      window.location.href = 'login.html';  // 로그인 안 되어 있으면 로그인 페이지로 이동
-    }
-  </script>
 </body>
 </html>
