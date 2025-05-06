@@ -57,6 +57,26 @@
       66% { transform: translateX(-200vw); }
       100% { transform: translateX(0); }
     }
+    .free-shipping-banner {
+      background-color: #f8d7da;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      color: #721c24;
+    }
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .category-btn {
+      padding: 1rem;
+      background-color: #f8f9fa;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -105,29 +125,10 @@
       font-size: 0.9rem;
       font-weight: bold;
     }
-    .free-shipping-banner {
-      background-color: #f8d7da;
-      padding: 1rem;
-      text-align: center;
-      font-weight: bold;
-      color: #721c24;
-    }
-    .category-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .category-btn {
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      text-align: center;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
+
   <header>
     <h2 style="margin: 0;">NYKIN SHOP</h2>
     <div class="auth">
@@ -148,16 +149,14 @@
     </div>
   </div>
 
-  <div class="free-shipping-banner">
-    무료배송 시작!
-  </div>
+  <div class="free-shipping-banner">무료배송 시작!</div>
 
   <div class="category-buttons">
     <button class="category-btn" onclick="showCategory('cosmetics')">화장품</button>
     <button class="category-btn" onclick="showCategory('etc')">기타잡동사니</button>
   </div>
 
-  <div id="cosmetics" class="product-grid" style="display:none">
+  <div id="cosmetics" class="product-grid" style="display: none;">
     <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
@@ -173,7 +172,7 @@
     <div class="product-card"><h4>리노이아</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
   </div>
 
-  <div id="etc" class="product-grid" style="display:none">
+  <div id="etc" class="product-grid" style="display: none;">
     <div class="product-card"><h4>멀티툴 키트</h4><p>₩5,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>휴대용 선풍기</h4><p>₩7,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
   </div>
@@ -190,13 +189,17 @@
       document.getElementById("etc").style.display = "none";
       document.getElementById(category).style.display = "grid";
     }
+
     function addToCart() {
       window.location.href = 'cart.html';
     }
+
     function buyNow() {
       alert('구매하기 기능은 아직 구현되지 않았습니다.');
     }
   </script>
+
 </body>
 </html>
+
 
