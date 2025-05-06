@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NYKIN SHOP</title>
   <style>
     body {
@@ -90,17 +90,11 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-    .product-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
     .product-card h4 {
       margin: 0.5rem 0 0.2rem;
     }
     .product-card button {
-      margin-top: 0.5rem;
+      margin: 0.3rem;
       padding: 0.4rem 1rem;
       background-color: #333;
       color: white;
@@ -128,7 +122,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <h2 style="margin: 0;">NYKIN SHOP</h2>
     <div class="auth">
@@ -156,7 +149,7 @@
     <button class="category-btn" onclick="showCategory('etc')">기타잡동사니</button>
   </div>
 
-  <div id="cosmetics" class="product-grid" style="display: none;">
+  <div id="cosmetics" class="product-grid" style="display:none">
     <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
@@ -172,7 +165,7 @@
     <div class="product-card"><h4>리노이아</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
   </div>
 
-  <div id="etc" class="product-grid" style="display: none;">
+  <div id="etc" class="product-grid" style="display:none">
     <div class="product-card"><h4>멀티툴 키트</h4><p>₩5,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>휴대용 선풍기</h4><p>₩7,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
   </div>
@@ -185,21 +178,17 @@
 
   <script>
     function showCategory(category) {
-      document.getElementById("cosmetics").style.display = "none";
-      document.getElementById("etc").style.display = "none";
-      document.getElementById(category).style.display = "grid";
+      document.querySelectorAll('.product-grid').forEach(function(div) {
+        div.style.display = 'none';
+      });
+      document.getElementById(category).style.display = 'grid';
     }
-
     function addToCart() {
       window.location.href = 'cart.html';
     }
-
     function buyNow() {
       alert('구매하기 기능은 아직 구현되지 않았습니다.');
     }
   </script>
-
 </body>
 </html>
-
-
