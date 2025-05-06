@@ -5,15 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NYKIN SHOP</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background-color: #87CEFA; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
-    .auth { display: flex; gap: 1rem; }
-    .auth a { text-decoration: none; color: #333; font-weight: bold; }
-    .search-bar { display: flex; justify-content: center; margin: 1rem; }
-    .search-bar input { width: 60%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px; }
-    .banner-slider { width: 100%; overflow: hidden; }
-    .slider-container { display: flex; width: 300%; animation: slide 9s infinite; }
-    .slider-container img { width: 100vw; height: auto; max-height: 400px; object-fit: cover; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #87CEFA; /* 파스텔 블루 */
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+    .auth {
+      display: flex;
+      gap: 1rem;
+    }
+    .auth a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin: 1rem;
+    }
+    .search-bar input {
+      width: 60%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .banner-slider {
+      width: 100%;
+      overflow: hidden;
+    }
+    .slider-container {
+      display: flex;
+      width: 300%;
+      animation: slide 9s infinite;
+    }
+    .slider-container img {
+      width: 100vw;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+    }
     @keyframes slide {
       0% { transform: translateX(0); }
       33% { transform: translateX(-100vw); }
@@ -27,21 +64,28 @@
       font-weight: bold;
       color: #721c24;
     }
-    .category-buttons, .subcategory-buttons {
+    .category-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      padding: 1rem;
+      margin: 1rem;
     }
-    .category-btn, .subcategory-btn {
+    .category-btn {
       padding: 1rem;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
       text-align: center;
       cursor: pointer;
     }
+    .subcategory-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 1rem;
+    }
     .product-grid {
-      display: none;
+      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1rem;
       padding: 1rem;
@@ -53,8 +97,17 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-card h4 {
+      margin: 0.5rem 0 0.2rem;
+    }
     .product-card button {
-      margin: 0.3rem 0.2rem;
+      margin-top: 0.5rem;
       padding: 0.4rem 1rem;
       background-color: #333;
       color: white;
@@ -102,50 +155,28 @@
     </div>
   </div>
 
-  <div class="free-shipping-banner">
-    무료배송 시작!
-  </div>
+  <div class="free-shipping-banner">무료배송 시작!</div>
 
   <div class="category-buttons">
-    <button class="category-btn" onclick="showMainCategory('cosmetic')">화장품</button>
-    <button class="category-btn" onclick="showMainCategory('etc')">기타잡동사니</button>
+    <button class="category-btn" onclick="showSubCategory('cosmetics')">화장품</button>
+    <button class="category-btn" onclick="showCategory('others')">기타잡동사니</button>
   </div>
 
-  <div id="cosmetic-subcategories" class="subcategory-buttons" style="display: none;">
-    <button class="subcategory-btn" onclick="showSubCategory('skincare')">기초스킨</button>
-    <button class="subcategory-btn" onclick="showSubCategory('mask')">팩/마스크</button>
-    <button class="subcategory-btn" onclick="showSubCategory('perfume')">향수</button>
-    <button class="subcategory-btn" onclick="showSubCategory('cleansing')">클렌징/헤어바디</button>
+  <div class="subcategory-buttons" id="cosmetics-sub" style="display: none;">
+    <button class="category-btn" onclick="showCategory('skin')">기초스킨</button>
+    <button class="category-btn" onclick="showCategory('mask')">팩/마스크</button>
+    <button class="category-btn" onclick="showCategory('perfume')">향수</button>
+    <button class="category-btn" onclick="showCategory('clean')">클렌징/헤어바디</button>
   </div>
 
-  <div id="skincare" class="product-grid">
-    <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>VT 콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+  <!-- 각각의 카테고리/소분류는 아래처럼 구성 -->
+  <div id="skin" class="product-grid" style="display:none;">
+    <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
+    <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
+    <div class="product-card"><h4>VT콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
   </div>
 
-  <div id="mask" class="product-grid">
-    <div class="product-card"><h4>팩미인 하이드로</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>메디필 엑스트라</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>에그캡슐팩</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>본셉 레티놀 세럼</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-  </div>
-
-  <div id="perfume" class="product-grid">
-    <div class="product-card"><h4>머스크던</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>바닐라재즈</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>디어로지</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-  </div>
-
-  <div id="cleansing" class="product-grid">
-    <div class="product-card"><h4>레드진생</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>팩미인</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>리노이아</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-  </div>
-
-  <div id="etc" class="product-grid">
-    <div class="product-card"><h4>기타 상품 준비 중</h4><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-  </div>
+  <!-- 동일 형식으로 mask, perfume, clean, others 추가 -->
 
   <footer>
     <a href="#">홈</a>
@@ -154,96 +185,19 @@
   </footer>
 
   <script>
-    function showMainCategory(category) {
-      document.getElementById("cosmetic-subcategories").style.display = category === 'cosmetic' ? "flex" : "none";
-      document.querySelectorAll(".product-grid").forEach(grid => grid.style.display = "none");
-      if (category === 'etc') {
-        document.getElementById("etc").style.display = "grid";
-      }
+    function showCategory(id) {
+      document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'grid';
     }
-
-    function showSubCategory(sub) {
-      document.querySelectorAll(".product-grid").forEach(grid => grid.style.display = "none");
-      document.getElementById(sub).style.display = "grid";
+    function showSubCategory(main) {
+      document.getElementById('cosmetics-sub').style.display = main === 'cosmetics' ? 'flex' : 'none';
     }
-
     function addToCart() {
-      window.location.href = "cart.html";
+      window.location.href = 'cart.html';
     }
-
     function buyNow() {
-      alert("구매하기 기능은 아직 구현되지 않았습니다.");
+      alert('구매하기 기능은 아직 구현되지 않았습니다.');
     }
   </script>
 </body>
 </html>
-
-    .category-btn {
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      text-align: center;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h2 style="margin: 0;">NYKIN SHOP</h2>
-    <div class="auth">
-      <a href="signup.html">회원가입</a>
-      <a href="login.html">로그인</a>
-    </div>
-  </header>
-
-  <div class="search-bar">
-    <input type="text" placeholder="🔍 상품 검색..." />
-  </div>
-
-  <!-- 슬라이드 배너 유지 -->
-  <div class="banner-slider">
-    <div class="slider-container">
-      <img src="https://images.unsplash.com/photo-1551854838-212c50b4c092?auto=format&fit=crop&w=1500&q=80" alt="배너1" />
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1500&q=80" alt="배너2" />
-      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1500&q=80" alt="배너3" />
-    </div>
-  </div>
-
-  <div class="category-buttons">
-    <button class="category-btn" onclick="showCategory('cosmetic')">화장품</button>
-    <button class="category-btn" onclick="showCategory('etc')">기타잡동사니</button>
-  </div>
-
-  <!-- 새 화장품 카테고리 -->
-  <div id="cosmetic" class="product-grid">
-    <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p></div>
-    <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p></div>
-    <div class="product-card"><h4>VT 콜라겐 리들샷</h4><p>₩3,000</p></div>
-
-    <div class="product-card"><h4>팩미인 하이드로</h4><p>₩1,000</p></div>
-    <div class="product-card"><h4>메디필 엑스트라</h4><p>₩1,000</p></div>
-    <div class="product-card"><h4>에그캡슐팩</h4><p>₩1,000</p></div>
-    <div class="product-card"><h4>본셉 레티놀 세럼</h4><p>₩1,000</p></div>
-
-    <div class="product-card"><h4>데일리콤마 머스크던</h4><p>₩3,000</p></div>
-    <div class="product-card"><h4>데일리콤마 바닐라재즈</h4><p>₩3,000</p></div>
-    <div class="product-card"><h4>데일리콤마 디어로지</h4><p>₩3,000</p></div>
-
-    <div class="product-card"><h4>레드진생</h4><p>₩2,000</p></div>
-    <div class="product-card"><h4>팩미인</h4><p>₩2,000</p></div>
-    <div class="product-card"><h4>리노이아</h4><p>₩2,000</p></div>
-  </div>
-
-  <!-- 기타잡동사니 -->
-  <div id="etc" class="product-grid">
-    <div class="product-card"><h4>기타 상품 준비 중</h4></div>
-  </div>
-
-  <footer>
-    <a href="#">홈</a>
-    <a href="cart.html">장바구니</a>
-    <a href="contact.html">문의하기</a>
-  </footer>
-</body>
-</html>
-
