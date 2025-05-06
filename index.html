@@ -5,132 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NYKIN SHOP</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #87CEFA; /* 파스텔 블루 */
+    body { 
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      background-color: #87CEFA; /* 파스텔 블루 배경 */
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
+    header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 1rem; 
     }
-    .auth {
-      display: flex;
-      gap: 1rem;
+    .auth { 
+      display: flex; 
+      gap: 1rem; 
     }
-    .auth a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+    .auth a { 
+      text-decoration: none; 
+      color: #333; 
+      font-weight: bold; 
     }
-    .search-bar {
-      display: flex;
-      justify-content: center;
-      margin: 1rem;
+    .search-bar { 
+      display: flex; 
+      justify-content: center; 
+      margin: 1rem; 
     }
-    .search-bar input {
-      width: 60%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .search-bar input { 
+      width: 60%; 
+      padding: 0.5rem; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
     }
-    .banner-slider {
-      width: 100%;
-      overflow: hidden;
+    .banner-slider { 
+      width: 100%; 
+      overflow: hidden; 
     }
-    .slider-container {
-      display: flex;
-      width: 300%;
-      animation: slide 9s infinite;
+    .slider-container { 
+      display: flex; 
+      width: 300%; 
+      animation: slide 9s infinite; 
     }
-    .slider-container img {
-      width: 100vw;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
+    .slider-container img { 
+      width: 100vw; 
+      height: auto; 
+      max-height: 400px; 
+      object-fit: cover; 
     }
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      33% { transform: translateX(-100vw); }
-      66% { transform: translateX(-200vw); }
-      100% { transform: translateX(0); }
+    @keyframes slide { 
+      0% { transform: translateX(0); } 
+      33% { transform: translateX(-100vw); } 
+      66% { transform: translateX(-200vw); } 
+      100% { transform: translateX(0); } 
     }
-    .free-shipping-banner {
-      background-color: #f8d7da;
-      padding: 1rem;
-      text-align: center;
-      font-weight: bold;
-      color: #721c24;
+    .free-shipping-banner { 
+      background-color: #f8d7da; 
+      padding: 1rem; 
+      text-align: center; 
+      font-weight: bold; 
+      color: #721c24; 
     }
     .category-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem;
+      text-align: center;
+      margin: 1rem 0;
     }
     .category-btn {
-      padding: 1rem;
-      background-color: #f8f9fa;
-      border: 1px solid #ccc;
-      text-align: center;
+      padding: 1rem; 
+      background-color: #f8f9fa; 
+      border: 1px solid #ccc; 
+      text-align: center; 
       cursor: pointer;
+      margin: 0 0.5rem;
     }
-    .subcategory-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin: 0.5rem 1rem;
+    footer { 
+      position: fixed; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      display: flex; 
+      justify-content: space-around; 
+      background-color: white; 
+      padding: 0.5rem 0; 
+      border-top: 1px solid #ccc; 
     }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .product-card {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    .product-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    .product-card h4 {
-      margin: 0.5rem 0 0.2rem;
-    }
-    .product-card button {
-      margin-top: 0.5rem;
-      padding: 0.4rem 1rem;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      background-color: white;
-      padding: 0.5rem 0;
-      border-top: 1px solid #ccc;
-    }
-    footer a {
-      text-decoration: none;
-      color: #333;
-      font-size: 0.9rem;
-      font-weight: bold;
+    footer a { 
+      text-decoration: none; 
+      color: #333; 
+      font-size: 0.9rem; 
+      font-weight: bold; 
     }
   </style>
 </head>
@@ -155,49 +116,20 @@
     </div>
   </div>
 
-  <div class="free-shipping-banner">무료배송 시작!</div>
+  <div class="free-shipping-banner">
+    무료배송 시작!
+  </div>
 
+  <!-- 카테고리 버튼 (상단만 유지) -->
   <div class="category-buttons">
-    <button class="category-btn" onclick="showSubCategory('cosmetics')">화장품</button>
-    <button class="category-btn" onclick="showCategory('others')">기타잡동사니</button>
+    <button class="category-btn">화장품</button>
+    <button class="category-btn">기타잡동사니</button>
   </div>
-
-  <div class="subcategory-buttons" id="cosmetics-sub" style="display: none;">
-    <button class="category-btn" onclick="showCategory('skin')">기초스킨</button>
-    <button class="category-btn" onclick="showCategory('mask')">팩/마스크</button>
-    <button class="category-btn" onclick="showCategory('perfume')">향수</button>
-    <button class="category-btn" onclick="showCategory('clean')">클렌징/헤어바디</button>
-  </div>
-
-  <!-- 각각의 카테고리/소분류는 아래처럼 구성 -->
-  <div id="skin" class="product-grid" style="display:none;">
-    <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
-    <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
-    <div class="product-card"><h4>VT콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">주문하기</button></div>
-  </div>
-
-  <!-- 동일 형식으로 mask, perfume, clean, others 추가 -->
 
   <footer>
     <a href="#">홈</a>
     <a href="cart.html">장바구니</a>
     <a href="#">문의하기</a>
   </footer>
-
-  <script>
-    function showCategory(id) {
-      document.querySelectorAll('.product-grid').forEach(el => el.style.display = 'none');
-      document.getElementById(id).style.display = 'grid';
-    }
-    function showSubCategory(main) {
-      document.getElementById('cosmetics-sub').style.display = main === 'cosmetics' ? 'flex' : 'none';
-    }
-    function addToCart() {
-      window.location.href = 'cart.html';
-    }
-    function buyNow() {
-      alert('구매하기 기능은 아직 구현되지 않았습니다.');
-    }
-  </script>
 </body>
 </html>
