@@ -64,13 +64,13 @@
       font-weight: bold;
       color: #721c24;
     }
-    .category-buttons {
+    .category-buttons, .sub-category-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
       margin: 1rem 0;
     }
-    .category-btn {
+    .category-btn, .sub-category-btn {
       padding: 1rem;
       background-color: #f8f9fa;
       border: 1px solid #ccc;
@@ -145,21 +145,37 @@
   <div class="free-shipping-banner">무료배송 시작!</div>
 
   <div class="category-buttons">
-    <button class="category-btn" onclick="showCategory('cosmetics')">화장품</button>
+    <button class="category-btn" onclick="showSubCategories('cosmetics')">화장품</button>
     <button class="category-btn" onclick="showCategory('etc')">기타잡동사니</button>
   </div>
 
-  <div id="cosmetics" class="product-grid" style="display:none">
+  <div id="sub-cosmetics" class="sub-category-buttons" style="display:none">
+    <button class="sub-category-btn" onclick="showSubCategory('skincare')">기초스킨</button>
+    <button class="sub-category-btn" onclick="showSubCategory('mask')">팩/마스크</button>
+    <button class="sub-category-btn" onclick="showSubCategory('perfume')">향수</button>
+    <button class="sub-category-btn" onclick="showSubCategory('cleansing')">클렌징/헤어바디</button>
+  </div>
+
+  <div id="skincare" class="product-grid" style="display:none">
     <div class="product-card"><h4>VT 리들샷300</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 리들샷500</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>VT 콜라겐 리들샷</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+  </div>
+
+  <div id="mask" class="product-grid" style="display:none">
     <div class="product-card"><h4>팩미인 하이드로</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>메디필 엑스트라</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>에그캡슐팩</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>본셉 레티놀 세럼</h4><p>₩1,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>데일리콤마 벨로 던 머스크</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>데일리콤마 벨로 바닐라</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
-    <div class="product-card"><h4>데일리콤마 벨로 디어로지</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+  </div>
+
+  <div id="perfume" class="product-grid" style="display:none">
+    <div class="product-card"><h4>벨로 던 머스크</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+    <div class="product-card"><h4>벨로 바닐라</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+    <div class="product-card"><h4>벨로 디어로지</h4><p>₩3,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
+  </div>
+
+  <div id="cleansing" class="product-grid" style="display:none">
     <div class="product-card"><h4>레드진생</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>팩미인</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
     <div class="product-card"><h4>리노이아</h4><p>₩2,000</p><button onclick="addToCart()">장바구니 담기</button><button onclick="buyNow()">구매하기</button></div>
@@ -178,10 +194,19 @@
 
   <script>
     function showCategory(category) {
-      document.querySelectorAll('.product-grid').forEach(function(div) {
-        div.style.display = 'none';
-      });
+      document.querySelectorAll('.product-grid').forEach(div => div.style.display = 'none');
       document.getElementById(category).style.display = 'grid';
+      document.getElementById('sub-cosmetics').style.display = 'none';
+    }
+    function showSubCategories(mainCategory) {
+      document.querySelectorAll('.product-grid').forEach(div => div.style.display = 'none');
+      if (mainCategory === 'cosmetics') {
+        document.getElementById('sub-cosmetics').style.display = 'flex';
+      }
+    }
+    function showSubCategory(subCategory) {
+      document.querySelectorAll('.product-grid').forEach(div => div.style.display = 'none');
+      document.getElementById(subCategory).style.display = 'grid';
     }
     function addToCart() {
       window.location.href = 'cart.html';
